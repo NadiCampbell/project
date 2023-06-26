@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Travel Bucket List</title>
+</head>
+<body>
+   <nav class="navstyle">
+    <a href="/">Home</a>
+    <a href="/countries">Destinations</a>
+    <h1>Travel Bucket List</h1>
+   </nav>
+
+
+   <!-- <div class="bgimg"> -->
+    <!-- <img src="../assets/images/slider_One_final.jpg" alt="popular landmarks on top of globe">
+   </div> -->
+
+   <section id="content">
+      {% block content %}
+    
+      {% endblock content %}
+   </section>
+
+
+</body>
+</html>

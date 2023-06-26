@@ -1,0 +1,17 @@
+.navstyle {
+    background-color: rgb(245, 87, 48);
+    overflow: hidden; 
+    color: #fff;
+}
+
+.navstyle a {
+    float: left;
+    padding: 14px 14px;
+    text-decoration: none;
+    color: #fff;
+    font: 20px;
+}
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+    {% for country in countries %}
+        <li>
+            <p>
+              <a href="/countries/{{country.id}}">{{ country.name }}</a>
+              <input type="checkbox">
+              <a href="/countries/{{country.id}}/edit"><button type ="submit" id="edit-button">Edit</button></a>
+            </p>
+        </li>
+    {% endfor %}
+    <a href="/countries/new"><button type="submit" id="add-button">Add Country</button></a>
+    </ul>
+
+{% endblock content %}
