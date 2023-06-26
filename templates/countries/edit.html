@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="/countries/{{country.id}}" method="POST">
+    <form action="/countries/edit" method="POST">
         <div>
             <label for="country">Country:</label>
-            <input id="country" name="country" type="text" value="{{country.name}}">
+            <input id="country" name="name" type="text" value="{{country.name}}">
         </div>
         <br>
         <input type="submit">

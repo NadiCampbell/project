@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="/countries/new">
+    <form action="/countries" method="POST">
         <div>
             <label for="country">Country</label>
-            <input id="country" name="country" type="text">
+            <input id="country" name="name" type="text">
         </div>
         <br>
         <input type="submit">

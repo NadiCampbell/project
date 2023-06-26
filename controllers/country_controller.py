@@ -24,14 +24,24 @@ def edit(id):
 @countries_blueprint.route('/countries/<id>')
 def show(id):
     country = country_repository.select(id)
-    return render_template("/countries/show.html", country = country)
+    cities = city_repository.cities_for_country(country)
+    return render_template("/countries/show.html", country = country, cities = cities)
+
 
 
 @countries_blueprint.route('/countries/new')
 def new():
-    country = country_repository.select_all()
-    return render_template('/countries/new.html', country = country)
+    return render_template('/countries/new.html')
 
 
-# @countries_blueprint.route('/countries', methods=['POST'])
-# def create():
+@countries_blueprint.route('/countries', methods=['POST'])
+def create():
+    name = request.form['name']
+
+    country = Country(name)
+    country_repository.save(country)
+    return redirect('/countries')
+
+@countries_blueprint.route('/countries/edit')
+def update():
+    return render_template('/countries/edit.html')
