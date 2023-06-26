@@ -5,7 +5,8 @@
     {% for city in cities %}
         <li>
             <p>
-              <a href="">{{ city.name }} </a>
+              <a href="/cities/{{city.id}}">{{ city.name }} </a>
+              <input type="checkbox">
             </p>
         </li>
     {% endfor %}
