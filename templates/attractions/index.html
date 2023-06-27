@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+    {% for attraction in attractions %}
+        <li>
+            <p>
+              <a href="/attractions/{{attraction.id}}">{{ attraction.name }} </a>
+              <input type="checkbox">
+            </p>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

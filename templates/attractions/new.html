@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/attractions" method="POST">
+        <div>
+            <label for="attraction">Attractions</label>
+            <input id="attraction" name="name" type="text">
+        </div>
+        <br>
+        <select name="city_id" id="city-id">
+        {% for city in cities %}
+            <option value="{{city.id}}">{{city.name}}</option>
+        {% endfor %}
+        </select>
+        <input type="submit">
+    </form>
+{% endblock content %}
