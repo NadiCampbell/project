@@ -15,3 +15,15 @@
 h1 {
     text-align: center;
 }
+
+body {
+    height: 100vh;
+    background-image: url('https://www.miki.co.uk/sites/MikiTravelGlobal/files/slider_One_final.jpg?1687046400046');
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+ul {
+    text-align: center;
+    list-style: none;
+}
