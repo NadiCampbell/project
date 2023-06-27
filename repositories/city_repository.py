@@ -2,6 +2,8 @@ from db.run_sql import run_sql
 from models.country import Country
 from models.city import City
 
+import repositories.country_repository as country_repository
+
 
 def save(city):
     sql = "INSERT INTO cities (name, country_id) VALUES (%s, %s) RETURNING id"
@@ -15,10 +17,12 @@ def select_all():
 
     sql = "SELECT * FROM cities"
     results = run_sql(sql)
-    for row in results:
-        city = City(row['name'], row['country_id'], row['id'])
+    for result in results:
+        country = country_repository.select(result['country_id'])
+        city = City(result['name'], country, result['id'])
         cities.append(city)
     return cities
+
 
 def select(id):
     city = None
@@ -26,9 +30,11 @@ def select(id):
     values = [id]
     results = run_sql(sql, values)
 
+
     if results: 
         result = results[0]
-        city = City(result['name'],result['country_id'], result['id'])
+        country = country_repository.select(result['country_id'])
+        city = City(result['name'], country, result['id'])
     return city
 
 

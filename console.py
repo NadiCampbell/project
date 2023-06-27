@@ -45,4 +45,4 @@ city_repository.save(city7)
 city8 = City('Toulouse', country1)
 city_repository.save(city8)
 
-pdb.set_trace()
+# pdb.set_trace()

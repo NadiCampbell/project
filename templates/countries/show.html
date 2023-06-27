@@ -8,5 +8,9 @@
 
     {% for city in cities %}
         <a href="/cities/{{city.id}}">{{city.name}}</a>
+        <form action="/cities/{{city.id}}/delete" method="POST"><button type="submit" id="delete-button">Delete City</button></form>
     {% endfor %}
+    <a href="/cities/new"><button type="submit" id="add-button">Add City</button></a>
+
+
 {% endblock content %}
