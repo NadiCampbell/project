@@ -3,7 +3,7 @@
 {% block content %}
     <h2>{{city.name}}</h2>
     {% for attraction in city_attractions %}
-        <a href="/attractions/{{attraction.id}}">{{attraction.name}}</a>
+        <h4>Popular Attractions:<a href="/attractions/{{attraction.id}}">{{attraction.name}}</a></h4>
     {% endfor %}
 
 {% endblock content %}
