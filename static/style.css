@@ -1,3 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+
 .navstyle {
     background-color: rgb(245, 87, 48);
     overflow: hidden; 
@@ -15,6 +25,10 @@
 h1 {
     text-align: center;
 }
+h2 {
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 body {
     height: 100vh;
@@ -27,3 +41,10 @@ ul {
     text-align: center;
     list-style: none;
 }
+
+.city-style {
+    text-align: center;
+    
+}
+
+

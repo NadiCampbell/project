@@ -4,3 +4,4 @@ class Attraction:
         self.city = city
         self.review = review
         self.id = id
+

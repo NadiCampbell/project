@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
 
+from controllers.attraction_controller import attractions_blueprint
 from controllers.city_controller import cities_blueprint
 from controllers.country_controller import countries_blueprint
-from controllers.attraction_controller import attractions_blueprint
 
 
 
@@ -17,4 +17,4 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

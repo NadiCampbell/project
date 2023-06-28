@@ -10,8 +10,8 @@ attractions_blueprint = Blueprint('attractions', __name__)
 
 @attractions_blueprint.route('/attractions')
 def attractions():
-    attraction = attraction_repository.select_all()
-    return render_template('cities/index.html', attraction = attraction)
+    attractions = attraction_repository.select_all()
+    return render_template('attractions/index.html', attractions = attractions)
 
 
 @attractions_blueprint.route('/attractions/<id>')

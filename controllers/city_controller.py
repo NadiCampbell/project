@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.city import City
 from repositories import city_repository
 from repositories import country_repository
+from repositories import attraction_repository
 
 cities_blueprint = Blueprint('cities', __name__)
 
@@ -15,7 +16,8 @@ def cities():
 @cities_blueprint.route('/cities/<id>')
 def show(id):
     city = city_repository.select(id)
-    return render_template("/cities/show.html", city = city)
+    city_attractions = attraction_repository.attractions_for_city(city)
+    return render_template("/cities/show.html", city = city, city_attractions = city_attractions)
 
 @cities_blueprint.route('/cities/new')
 def new():

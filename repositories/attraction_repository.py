@@ -8,7 +8,7 @@ import repositories.city_repository as city_repository
 
 def save(attraction):
     sql = "INSERT INTO attractions (name, city_id, review) VALUES (%s, %s, %s) RETURNING id"
-    values = [attraction.name, attraction.city.id]
+    values = [attraction.name, attraction.city.id, attraction.review]
     results = run_sql(sql, values)
     attraction.id = results[0]['id']
     return attraction
@@ -20,7 +20,7 @@ def select_all():
     results = run_sql(sql)
     for result in results:
         city = city_repository.select(result['city_id'])
-        attraction = Attraction(result['name'], city, result['id'])
+        attraction = Attraction(result['name'], city, result['review'], result['id'])
         attractions.append(attraction)
     return attractions
 
@@ -55,15 +55,16 @@ def delete(id):
     run_sql(sql,values)
 
 
-def attractions_for_cities(city):
+def attractions_for_city(city):
     attractions = []
     sql = "SELECT * FROM attractions WHERE city_id = %s"
     values = [city.id]
     results = run_sql(sql,values)
     for row in results:
-        attraction = Attraction(row['name'], row['city_id'], row['review'], row['id'])
-        attractions.append(city)
-    return attraction
+        city = city_repository.select(row['city_id'])
+        attraction = Attraction(row['name'], city, row['review'], row['id'])
+        attractions.append(attraction)
+    return attractions
     
 
 

@@ -60,7 +60,8 @@ def cities_for_country(country):
     values = [country.id]
     results = run_sql(sql,values)
     for row in results:
-        city = City(row['name'], row['country_id'], row['id'])
+        country = country_repository.select(row['country_id'])
+        city = City(row['name'], country, row['id'])
         cities.append(city)
     return cities
     
