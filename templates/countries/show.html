@@ -2,18 +2,22 @@
 
 {% block content %}
     <h2>{{country.name}}</h2>
-    <p>
-        This is where i'll write some interesting things about each country, list the correct cities that are found in this country
-    </p>
-
-    <section class="city-style">
-        {% for city in cities %}
-        <a href="/cities/{{city.id}}">{{city.name}}</a>
-        <form action="/cities/{{city.id}}/delete" method="POST"><button type="submit" id="delete-button">Delete City</button></form>
-    {% endfor %}
+   
+<div class="add-country-cta-wrapper ">
     <a href="/cities/new"><button type="submit" id="add-button">Add City</button></a>
-    </section>
-
-    <!-- <img src="/assets/images/canada.jpg" alt="mountains over lake in canada"> -->
-
+</div>
+  
+    <div class="flex-wrapper-position">
+        <div class="flex-wrapper">
+            {% for city in cities %}
+            <div class="flex-child">
+                <a href="/cities/{{city.id}}">{{city.name}}</a>
+                <form action="/cities/{{city.id}}/delete" method="POST"><button type="submit" id="delete-button">Delete City</button></form>
+            </div>
+          
+            {% endfor %}
+        </div>
+    </div>
 {% endblock content %}
+
+
